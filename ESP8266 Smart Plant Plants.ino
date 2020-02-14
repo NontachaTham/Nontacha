@@ -54,9 +54,6 @@ void loop() {
     WiFiClient client;
     HTTPClient http;    //Declare object of class HTTPClient
 
-    //https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/BasicHttpClient/BasicHttpClient.ino
-    //https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/PostHttpClient/PostHttpClient.ino
-    //*********************************************************************************************
 
     if (doc["soil moisture"] <= 60) {
       http.begin(client, "http://41d69695.ngrok.io/notification");     //Specify request destination
@@ -98,8 +95,6 @@ void loop() {
       valvestatus = "OFF";
     }
     http.end();  //Close connection
-
-    //*********************************************************************************************
 
   } else {
 
