@@ -52,10 +52,6 @@ sentstatus = {
 sentstatus = json.dumps(sentstatus)
 
 
-@app.route('/')
-def hello():
-    return 'Hello Tham'
-
 
 @app.route('/notification', methods=['POST'])
 def add_message():
