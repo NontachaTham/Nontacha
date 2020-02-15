@@ -44,7 +44,6 @@ static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
 app = Flask(__name__)
 
-# line_bot_api.broadcast(TextSendMessage("Hello"))
 sentstatus = {
     "sentdata": "NONE",
     "valve": "NONE",
@@ -62,10 +61,7 @@ def add_message():
     content = request.get_json()
     print(content)
     content2 = json.dumps(content)  # convernt Python to JSON
-    # sentence = "data"+content2
-    # line_bot_api.broadcast(TextSendMessage(sentence))
     content3 = json.loads(content2)  # Reading json file (JSON to Python)
-    # line_bot_api.broadcast(TextSendMessage(Text))
     line_bot_api.push_message('Uad677bb930b40aed843edaa385eae45d', TextSendMessage(text="-----Please water the plants!-----\n\nNow Soil moisture "+str(content3['soil moisture']) + " %"))
     return "OK"
 
@@ -74,7 +70,6 @@ def add_message():
 def webhook():
     content = request.get_json(silent=True, force=True)
     print(content)
-    # queryResult.outputContexts.parameters.valve
     global sentstatus
     sentstatus = json.loads(sentstatus)
     try:
