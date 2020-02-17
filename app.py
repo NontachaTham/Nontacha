@@ -134,15 +134,6 @@ def changestatus():
     return "DONE"
 
 
-# board will sent something to server to know that it receive command of valve
-@app.route('/valvestatusautomode', methods=['POST'])
-def boardauto():
-    boardres = request.get_json(silent=True, force=True)
-    line_bot_api.push_message(
-        user_id, TextSendMessage(text=boardres))
-    return "Board already get request"
-
-
 @app.route('/automodereply', methods=['POST'])
 def automodereply():
     reply = request.get_json()
