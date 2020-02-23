@@ -33,9 +33,9 @@ void setup() {
   while (WiFi.status() != WL_CONNECTED) {  //Wait for the WiFI connection completion
     delay(1000);
     Serial.println("Waiting for connection");
-
   }
 }
+
 
 void loop() {
 
