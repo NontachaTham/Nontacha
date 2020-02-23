@@ -34,10 +34,10 @@ from linebot.models import (
     ImageSendMessage)
 
 # line bot
-channel_secret = 'e94b621bcd5791c77376ee4c12d8d102'
-channel_access_token = 'L9XAALu+ycCiKGh+1oFf00ecQy7WlsIVJH4tuZPM7OmwDrZqXx58skJyOqy4G4mPKQ0ACBnZaFdbRsvaZdSAyIXZ37EEPoGabjkBBS4oouxIbnYacJz0WAzr8Fhc7kH2DevZLdPzf8x1PTqZdEKc+wdB04t89/1O/w1cDnyilFU='
+channel_secret = '<Your line channel secret>'
+channel_access_token = '<Your line access token>'
 
-user_id = 'Uad677bb930b40aed843edaa385eae45d'
+user_id = '<Your user id>'
 
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
