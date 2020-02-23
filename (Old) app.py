@@ -33,8 +33,8 @@ from linebot.models import (
     SeparatorComponent, QuickReply, QuickReplyButton,
     ImageSendMessage)
 
-channel_secret = 'e94b621bcd5791c77376ee4c12d8d102'
-channel_access_token = 'L9XAALu+ycCiKGh+1oFf00ecQy7WlsIVJH4tuZPM7OmwDrZqXx58skJyOqy4G4mPKQ0ACBnZaFdbRsvaZdSAyIXZ37EEPoGabjkBBS4oouxIbnYacJz0WAzr8Fhc7kH2DevZLdPzf8x1PTqZdEKc+wdB04t89/1O/w1cDnyilFU='
+channel_secret = '<Your line channel secret>'
+channel_access_token = '<Your line channel access token>'
 
 
 line_bot_api = LineBotApi(channel_access_token)
@@ -62,7 +62,7 @@ def add_message():
     print(content)
     content2 = json.dumps(content)  # convernt Python to JSON
     content3 = json.loads(content2)  # Reading json file (JSON to Python)
-    line_bot_api.push_message('Uad677bb930b40aed843edaa385eae45d', TextSendMessage(text="-----Please water the plants!-----\n\nNow Soil moisture "+str(content3['soil moisture']) + " %"))
+    line_bot_api.push_message('<Your user id>', TextSendMessage(text="-----Please water the plants!-----\n\nNow Soil moisture "+str(content3['soil moisture']) + " %"))
     return "OK"
 
 
@@ -77,11 +77,11 @@ def webhook():
         print(valve_flag)
         if(valve_flag == "OnValve"):
             sentstatus["valve"] = 1
-            line_bot_api.push_message('Uad677bb930b40aed843edaa385eae45d', TextSendMessage(text="Valve is ON"))
+            line_bot_api.push_message('<Your user id>', TextSendMessage(text="Valve is ON"))
 
         if(valve_flag == "OffValve"):
             sentstatus["valve"] = 0
-            line_bot_api.push_message('Uad677bb930b40aed843edaa385eae45d', TextSendMessage(text="Valve is OFF"))
+            line_bot_api.push_message('<Your user id>', TextSendMessage(text="Valve is OFF"))
         print("value : "+str(sentstatus["valve"]))
     except KeyError:
         sentdata_flag = content["queryResult"]["outputContexts"][0]["parameters"]["sentdata"]
@@ -114,5 +114,5 @@ def changestatus():
     Text += "Valve                = "+str(data["valvestat"])+"\n\n"
     Text += "****************************"
     print(Text)
-    line_bot_api.push_message('Uad677bb930b40aed843edaa385eae45d', TextSendMessage(text=Text))
+    line_bot_api.push_message('<Your user id>', TextSendMessage(text=Text))
     return "DONE"
